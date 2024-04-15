@@ -1,0 +1,5 @@
+package cs.ssn.mask;
+
+import com.getcapacitor.BridgeActivity;
+
+public class MainActivity extends BridgeActivity {}

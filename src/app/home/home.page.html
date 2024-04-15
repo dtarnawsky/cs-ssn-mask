@@ -1,0 +1,135 @@
+<ion-header class="ion-no-border">
+
+  <ion-toolbar class="header-background-color page-header-toolbar">
+    <ion-buttons role="button" slot="start" height="50px" style='color:#000000;font-size: 18px;margin-top: 20px;'
+      (click)="goBack()">
+      <ion-icon name="chevron-back" style='color:#000000;'></ion-icon><span>{{'basic.btnBack'}}</span>
+    </ion-buttons>
+    <div class="header-margin" style="margin-top: 20px;display: flex;
+    justify-content: center;
+    width: 100%;">
+      <ion-label class='header-ion-label' style='color:#0672A7;font-weight: bold;font-size: 20px;'><span>
+          {{'linkaCasePage.HeaderTitle'}}</span></ion-label>
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="middle-align">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <h4>{{'linkaCasePage.txt-linkExistingCase'}}</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        @if (errMsg) {
+        <span style="color:maroon">
+          <span> {{errMsg}}</span>
+        </span>
+        }
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-top: 10px" class="ion-padding">
+      <ion-col>
+        <form [formGroup]="linkForm" (ngSubmit)="next()">
+          <div style="margin-top: -15px" class="bottom-space">
+            <ion-label position="stacked" class="button-label">
+              <span style="color: maroon; font-weight: bold;">* </span>
+              <span style="font-weight: bold;">{{'linkaCasePage.dob'}}</span>
+            </ion-label>
+            <ion-row style="margin-top: 6px; padding-left: 10px;" color="primary-contrast" lines="none"
+              class="custom-item-boxes" id="dobModal">
+              <ion-col size="8">
+                <ion-input formControlName="dateOfBirth" displayFormat="MM/DDYYYY" placeholder="MM/DD/YYYY" type="text"
+                  id="open-popover"></ion-input>
+              </ion-col>
+              <ion-col size="4" style="text-align: center; margin-top: 6px; padding-left: 60px;">
+                <span class="icon-sty">
+                  <ion-icon name="calendar" style='color:#0672A7; font-size: 25px;'></ion-icon>
+
+                </span>
+              </ion-col>
+              <!--Update with ion-modal from the ion-popover -->
+              <ion-popover trigger="dobModal" [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-datetime presentation="date" preferWheel="true" type="ios" #datetime
+                    (ionChange)="dateValueChange(datetime.value)" size="cover" formControlName="dateOfBirth"
+                    [showDefaultButtons]="true" [value]="dateValue" class="date-cal-width">
+                  </ion-datetime>
+                </ng-template>
+              </ion-popover>
+            </ion-row>
+            <div class="validation-errors">
+              @for (validation of validation_messages.dateOfBirth; track validation) {
+
+              @if (lcf['dateOfBirth'].hasError(validation.type)
+              && (lcf['dateOfBirth'].dirty
+              || lcf['dateOfBirth'].touched)) {
+              <div class="error-message">
+                <span> {{ validation.message }}</span>
+              </div>
+              }
+
+              }
+            </div>
+          </div>
+          <div class="bottom-space">
+            <ion-label position="stacked" class="button-label">
+              <span style="color: maroon; font-weight: bold;">* </span>
+              <span style="font-weight: bold;">{{'linkaCasePage.clientid'}}</span></ion-label>
+            <ion-item style="margin-top: 8px" color="primary-contrast" lines="none" class="custom-item-boxes">
+              <ion-input placeholder="{{'linkaCasePage.place-holder-client-name'}}" formControlName="clientId"
+                type="text" maxLength="10"> </ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              @for (validation of validation_messages.clientId; track validation) {
+
+              @if (lcf['clientId'].hasError(validation.type)
+              && (lcf['clientId'].dirty
+              || lcf['clientId'].touched)) {
+              <div class="error-message">
+                <span>{{ validation.message }}</span>
+              </div>
+              }
+
+              }
+            </div>
+          </div>
+
+          <div class="bottom-space">
+            <ion-label position="stacked" class="button-label"> <span
+                style="font-weight: bold;">{{'linkaCasePage.ssn'}}</span></ion-label>
+            <ion-item style="margin-top: 8px" color="primary-contrast" lines="none" class="custom-item-boxes">
+              <input formControlName="ssn" placeholder="XXX-XX-XXXX" [patterns]="pattern" mask="xxx-xx-xxxx"
+                maxlength="11" [hiddenInput]="hidden" type="text" class="custom-input-box" />
+              <ion-icon [name]="hidden ? 'eye-outline' : 'eye-off-outline'" (click)="unhide()" slot="end"></ion-icon>
+            </ion-item>
+            <div class="validation-errors">
+              @for (validation of validation_messages.ssn; track validation) {
+
+              <div class="error-message">
+                <span> {{ validation.message }}</span>
+              </div>
+
+              }
+            </div>
+          </div>
+
+
+          <ion-row style="margin-top:15px">
+            <ion-col size="12">
+              <ion-button [disabled]="!this.linkForm.valid" class="next-button" shape="round" fill="solid"
+                color="primary" type="submit">
+                <span style="padding:10px"> {{'linkaCasePage.next'}}</span></ion-button>
+            </ion-col><br>
+          </ion-row>
+        </form>
+        {{lcf['ssn'].value}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

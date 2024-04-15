@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">cs-ssn-mask</string>
+    <string name="title_activity_main">cs-ssn-mask</string>
+    <string name="package_name">cs.ssn.mask</string>
+    <string name="custom_url_scheme">cs.ssn.mask</string>
+</resources>

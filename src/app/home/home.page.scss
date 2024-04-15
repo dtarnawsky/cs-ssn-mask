@@ -1,0 +1,131 @@
+ion-label {
+  margin-bottom: 10px;
+}
+
+.btn-color {
+  color: var(--ion-color-secondary)
+}
+
+.step-header {
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 25px;
+  color: #0672A7;
+  margin-left: 20px;
+  margin-top: 14px;
+}
+
+.subheader {
+  font-family: 'Roboto';
+  font-size: 17px;
+  font-weight: bold;
+  color: #505C62;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+
+.icon-sty {
+  font-size: 25px;
+  color: #0672A7;
+}
+
+.header-background-color {
+  --background: #F2F1F6;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
+.question-label {
+  padding-left: 6px;
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #000000;
+}
+
+.answer-label {
+  padding-left: 6px;
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #000000;
+}
+
+
+.error-message {
+  padding-left: 15px;
+  font-family: 'Roboto';
+  font-size: 16px
+}
+
+.bottom-space {
+  padding-bottom: 16px;
+}
+
+.verify-button {
+  padding-bottom: 16px;
+  width: 30%;
+}
+
+.list-space {
+  color: #505C62;
+  margin-top: -10px;
+  font-size: 14px;
+  font-family: 'Roboto';
+  margin-bottom: 25px;
+}
+
+.next-button {
+  width: 100%;
+  font-family: 'Roboto';
+  font-size: 20px;
+  width: 100% !important;
+  height: 45px !important;
+  font-weight: bold;
+}
+
+.custom-dropdown-box {
+  border-color: #C4C4C4;
+  border-width: thin;
+  border-style: solid;
+  border-radius: 9px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+
+.custom-item-boxes {
+  border-color: #C4C4C4;
+  border-width: thin;
+  border-style: solid;
+  border-radius: 9px;
+  height: 44px;
+  background-color: #FFFFFF;
+}
+
+.custom-input-box {
+  width: 100%;
+  background: #FFFFFF;
+  outline: none;
+  border: 0px;
+}
+
+.page-header-toolbar {
+  height: 88px;
+  align-items: flex-end;
+  display: flex;
+  --background: #F2F1F6;
+}
+
+.header-ion-label {
+  color: #0672A7;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+ion-popover {
+  --width: auto;
+}
